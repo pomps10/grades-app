@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import GradeDataService from '../services/GradeService';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import GradeDataService from "../services/GradeService";
+import { Link } from "react-router-dom";
 
 const GradeList = () => {
   const [grade, setGrade] = useState([]);
   const [currentGrade, setCurrentGrade] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(-1);
-  const [searchName, setSearchName] = useState('');
+  const [searchName, setSearchName] = useState("");
 
   useEffect(() => {
     retrieveGrade();
@@ -91,7 +91,7 @@ const GradeList = () => {
             grade.map((grade, index) => (
               <li
                 className={
-                  'list-group-item ' + (index === currentIndex ? 'active' : '')
+                  "list-group-item " + (index === currentIndex ? "active" : "")
                 }
                 onClick={() => setActiveGrade(grade, index)}
                 key={index}
@@ -112,30 +112,30 @@ const GradeList = () => {
             <div>
               <label>
                 <strong>Name:</strong>
-              </label>{' '}
+              </label>{" "}
               {currentGrade.name}
             </div>
             <div>
               <label>
                 <strong>Subject:</strong>
-              </label>{' '}
+              </label>{" "}
               {currentGrade.subject}
             </div>
             <div>
               <label>
                 <strong>Type:</strong>
-              </label>{' '}
+              </label>{" "}
               {currentGrade.type}
             </div>
             <div>
               <label>
                 <strong>Value:</strong>
-              </label>{' '}
+              </label>{" "}
               {currentGrade.value}
             </div>
 
             <Link
-              to={'/grade/' + currentGrade.id}
+              to={"/grade/" + currentGrade._id}
               className="badge badge-warning"
             >
               Edit
